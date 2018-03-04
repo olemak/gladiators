@@ -26,10 +26,7 @@ export class App extends Component {
                 <h1>Gladiators</h1>
                 {!this.props.data.loading ? (
                     this.props.data.allGladiators.map((gladiator, i) => (
-                        <Gladiator
-                            gladiator={gladiator}
-                            key={`gladiator-${i}`}
-                        />
+                        <Gladiator {...gladiator} key={`gladiator-${i}`} />
                     ))
                 ) : (
                     <h4>Loading</h4>

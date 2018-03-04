@@ -4,7 +4,8 @@ class Gladiator extends Component {
     render() {
         return (
             <div className="gladiator">
-                <h3>{this.props.gladiator.name}</h3>
+                <h3>{this.props.name}</h3>
+                {this.props.image ? <img src={this.props.image.url} /> : ""}
             </div>
         );
     }
