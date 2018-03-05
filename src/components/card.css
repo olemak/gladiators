@@ -1,0 +1,76 @@
+.Cards {
+    display: grid;
+    grid-template-columns: [left] repeat(6, 1fr) [right];
+}
+
+.Card {
+    grid-row-end: span 3;
+
+    display: grid;
+    width: 300px;
+
+    grid-template-columns: [left] repeat(12, 1fr) [right];
+    grid-template-rows: [header] 1fr [image] 3fr [description] 2fr [footer] 1fr [end];
+
+    border: 1px solid black;
+}
+
+.Card > * {
+    border: 1px solid blue;
+}
+
+.Card__title {
+    grid-column-start: left;
+    grid-column-end: 11;
+    grid-row-start: header;
+    grid-row-end: image;
+}
+.Card__type {
+    grid-column-start: 11;
+    grid-column-end: right;
+    grid-row-start: header;
+    grid-row-end: image;
+}
+
+.Card__image {
+    grid-column-start: left;
+    grid-column-end: right;
+    grid-row-start: image;
+    grid-row-end: description;
+
+    object-fit: contain;
+    width: 100%;
+    height: auto;
+}
+
+.Card__description {
+    grid-column-start: left;
+    grid-column-end: right;
+    grid-row-start: description;
+    grid-row-end: footer;
+    padding: 0 0.5em;
+}
+
+.Card__attack {
+    grid-column-start: left;
+    grid-column-end: 7;
+    grid-row-start: footer;
+    grid-row-end: bottom;
+}
+
+.Card__defense {
+    grid-column-start: 7;
+    grid-column-end: right;
+    grid-row-start: footer;
+    grid-row-end: bottom;
+}
+.Card__health {
+    grid-column-start: 11;
+    grid-column-end: right;
+    grid-row-start: image;
+    grid-row-end: description;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
