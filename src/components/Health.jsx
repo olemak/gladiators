@@ -6,11 +6,14 @@ export class Health extends PureComponent {
     render() {
         return (
             <ul className={`${this.props.className} health__list`}>
-                {this.hitPoints.map((count, i) => (
-                    <li className={`health__point`}>
+                {this.hitPoints.map(count => (
+                    <li
+                        className={`health__point`}
+                        key={`healthpoint-${count}`}
+                    >
                         <div
                             className={`health__icon health__icon--${
-                                i < this.props.count ? "full" : "empty"
+                                count < this.props.count ? "full" : "empty"
                             }`}
                         />
                     </li>
