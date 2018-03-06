@@ -11,7 +11,7 @@ export class Card extends Component {
                 </h3>
 
                 <i
-                    className={`Card__type Card__type--${this.props.__type} ${
+                    className={`Card__type Card__type--${this.props.type} ${
                         this.props.__typename
                     }__type`}
                 />
@@ -37,14 +37,16 @@ export class Card extends Component {
                 <div
                     className={`Card__attack ${this.props.__typename}__attack`}
                 >
-                    {this.props.attack}
+                    <div className="Attack__icon" />
+                    <div className="Attack__value">{this.props.attack}</div>
                 </div>
                 <div
                     className={`Card__defense ${
                         this.props.__typename
                     }__defense`}
                 >
-                    {this.props.defense}
+                    <div className="Defense__icon" />
+                    <div className="Defense__value">{this.props.defense}</div>
                 </div>
                 {this.props.health > 0 ? (
                     <Health
