@@ -8,7 +8,7 @@ export class Health extends PureComponent {
             <ul className={`${this.props.className} health__list`}>
                 {this.hitPoints.map(count => (
                     <li
-                        className={`health__point`}
+                        className={"health__point"}
                         key={`healthpoint-${count}`}
                     >
                         <div
