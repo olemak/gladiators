@@ -1,6 +1,13 @@
+body {
+    font-family: "Gloria Hallelujah", cursive;
+    line-height: 1;
+}
+
 .Cards {
     display: grid;
     grid-template-columns: [left] repeat(6, 1fr) [right];
+    grid-gap: 1em;
+    margin: 1em;
 }
 
 .Card {
@@ -10,61 +17,63 @@
     width: 300px;
 
     grid-template-columns: [left] repeat(12, 1fr) [right];
-    grid-template-rows: [header] 3em [image] 3fr [description] 1fr [footer] 3em [end];
+    grid-template-rows: [header] 3em [image-start] 2em [icon-end] 17em [description] 4em [footer] 3em [end];
 
     border: 1px solid black;
 }
 
 .Card__title {
-    grid-column-start: left;
-    grid-column-end: 11;
-    grid-row-start: header;
-    grid-row-end: image;
-    margin: 0;
-    padding: 0.6em;
-}
-.Card__type {
-    grid-column-start: 11;
+    grid-column-start: 4;
     grid-column-end: right;
     grid-row-start: header;
-    grid-row-end: image;
+    grid-row-end: image-start;
+    margin: 0;
+    padding: 0.6em;
+    font-size: 1.4em;
+}
+.Card__type {
+    grid-column-start: left;
+    grid-column-end: 4;
+    grid-row-start: header;
+    grid-row-end: icon-end;
 
     background-position: center;
     background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .Card__type--Poison {
-    background-image: url(../icons/poison.jpg);
+    background-image: url(../icons/poison.gif);
 }
 
 .Card__type--Fire {
-    background-image: url(../icons/fire.jpg);
+    background-image: url(../icons/fire.gif);
 }
 
 .Card__type--Ice {
-    background-image: url(../icons/ice.jpg);
+    background-image: url(../icons/ice.gif);
 }
 
 .Card__type--Lightning {
-    background-image: url(../icons/lightning.jpg);
+    background-image: url(../icons/lightning.gif);
 }
 
 .Card__type--Plant {
-    background-image: url(../icons/plant.jpg);
+    background-image: url(../icons/plant.gif);
 }
 
 .Card__type--Rock {
-    background-image: url(../icons/rock.jpg);
+    background-image: url(../icons/rock.gif);
 }
 
 .Card__type--Water {
-    background-image: url(../icons/water.jpg);
+    background-image: url(../icons/water.gif);
 }
 
 .Card__image {
     grid-column-start: left;
     grid-column-end: right;
-    grid-row-start: image;
+    grid-row-start: image-start;
     grid-row-end: description;
 
     object-fit: contain;
@@ -79,12 +88,14 @@
     grid-row-end: footer;
     padding: 0.5em;
     margin: 0;
+    line-height: 1.3em;
 }
 
 .Card__attack,
 .Card__defense {
     display: flex;
     justify-content: space-between;
+    line-height: 1;
 }
 
 .Card__attack {
@@ -110,10 +121,10 @@
     width: 3em;
 }
 .Attack__icon {
-    background-image: url(../icons/attack.jpg);
+    background-image: url(../icons/attack.gif);
 }
 .Defense__icon {
-    background-image: url(../icons/defense.jpg);
+    background-image: url(../icons/defense.gif);
 }
 .Attack__value,
 .Defense__value {
@@ -129,7 +140,7 @@
 .Card__health {
     grid-column-start: 11;
     grid-column-end: right;
-    grid-row-start: image;
+    grid-row-start: image-start;
     grid-row-end: description;
 
     display: flex;

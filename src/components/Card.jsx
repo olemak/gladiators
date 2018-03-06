@@ -10,12 +10,6 @@ export class Card extends Component {
                     {this.props.name}
                 </h3>
 
-                <i
-                    className={`Card__type Card__type--${this.props.type} ${
-                        this.props.__typename
-                    }__type`}
-                />
-
                 {this.props.image ? (
                     <img
                         className={`Card__image ${
@@ -27,6 +21,13 @@ export class Card extends Component {
                 ) : (
                     ""
                 )}
+
+                <i
+                    className={`Card__type Card__type--${this.props.type} ${
+                        this.props.__typename
+                    }__type`}
+                />
+
                 <p
                     className={`Card__description ${
                         this.props.__typename
