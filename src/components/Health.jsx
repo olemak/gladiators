@@ -1,5 +1,4 @@
 import React, { PureComponent } from "react";
-import PropTypes from "prop-types";
 
 export class Health extends PureComponent {
     hitPoints = [0, 1, 2, 3, 4, 5];

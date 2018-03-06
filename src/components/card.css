@@ -10,7 +10,7 @@
     width: 300px;
 
     grid-template-columns: [left] repeat(12, 1fr) [right];
-    grid-template-rows: [header] 1fr [image] 3fr [description] 2fr [footer] 1fr [end];
+    grid-template-rows: [header] 3em [image] 3fr [description] 1fr [footer] 3em [end];
 
     border: 1px solid black;
 }
@@ -24,6 +24,8 @@
     grid-column-end: 11;
     grid-row-start: header;
     grid-row-end: image;
+    margin: 0;
+    padding: 0.6em;
 }
 .Card__type {
     grid-column-start: 11;
@@ -48,7 +50,14 @@
     grid-column-end: right;
     grid-row-start: description;
     grid-row-end: footer;
-    padding: 0 0.5em;
+    padding: 0.5em;
+    margin: 0;
+}
+
+.Card__attack,
+.Card__defense {
+    display: flex;
+    justify-content: space-between;
 }
 
 .Card__attack {
