@@ -113,21 +113,21 @@ body {
     padding: 0.6em;
 }
 
-.Attack__icon,
-.Defense__icon {
+.attack__icon,
+.defense__icon {
     background-position: center;
     background-size: contain;
     height: 3em;
     width: 3em;
 }
-.Attack__icon {
+.attack__icon {
     background-image: url(../icons/attack.gif);
 }
-.Defense__icon {
+.defense__icon {
     background-image: url(../icons/defense.gif);
 }
-.Attack__value,
-.Defense__value {
+.attack__value,
+.defense__value {
     font-size: 2.8em;
 }
 

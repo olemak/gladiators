@@ -1,68 +1,35 @@
-import React, { Component } from "react";
+import React from "react";
 import { Health } from "./Health";
+import { Image } from "./Image";
 import "./card.css";
 
-export class Card extends Component {
-    render() {
-        return (
-            <div className={`Card ${this.props.__typename}`}>
-                <h3 className={`Card__title ${this.props.__typename}__title`}>
-                    {this.props.name}
-                </h3>
+export const Card = props => {
+    const {
+        __typename,
+        name,
+        image,
+        type,
+        description,
+        health,
+        ...stats
+    } = props;
 
-                {this.props.image ? (
-                    <img
-                        className={`Card__image ${
-                            this.props.__typename
-                        }__image`}
-                        src={this.props.image.url}
-                        alt={this.props.name}
-                    />
-                ) : (
-                    ""
-                )}
-
-                <i
-                    className={`Card__type Card__type--${this.props.type} ${
-                        this.props.__typename
-                    }__type`}
-                />
-
-                <p
-                    className={`Card__description ${
-                        this.props.__typename
-                    }__description`}
-                >
-                    {this.props.description}
-                </p>
-                <div
-                    className={`Card__attack ${this.props.__typename}__attack`}
-                >
-                    <div className="Attack__icon" />
-                    <div className="Attack__value">{this.props.attack}</div>
+    return (
+        <div className={`Card ${__typename}`}>
+            <h3 className="Card__title">{name}</h3>
+            <Image className="Card__image" src={image.url} />
+            <i className={`Card__type Card__type--${type}`} />
+            <p className="Card__description">{description}</p>
+            {Object.keys(stats).map(key => (
+                <div className={`Card__${key}`} key={key}>
+                    <div className={`${key}__icon`} />
+                    <div className={`${key}__value`}>{stats[key]}</div>
                 </div>
-                <div
-                    className={`Card__defense ${
-                        this.props.__typename
-                    }__defense`}
-                >
-                    <div className="Defense__icon" />
-                    <div className="Defense__value">{this.props.defense}</div>
-                </div>
-                {this.props.health > 0 ? (
-                    <Health
-                        className={`Card__health ${
-                            this.props.__typename
-                        }__health`}
-                        count={this.props.health}
-                    />
-                ) : (
-                    ""
-                )}
-            </div>
-        );
-    }
-}
+            ))}
+            <Health className="Card__health" count={health} />
+        </div>
+    );
+};
 
 Card.defaultProps = {
     __typename: "Gladiator",

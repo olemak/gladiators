@@ -1,19 +1,20 @@
-import React, { PureComponent } from "react";
+import React from "react";
 
-export class Health extends PureComponent {
-    hitPoints = [0, 1, 2, 3, 4, 5];
+export const Health = props => {
+    const hitPoints = [0, 1, 2, 3, 4, 5];
+    const { count } = props;
 
-    render() {
+    if (count) {
         return (
-            <ul className={`${this.props.className} health__list`}>
-                {this.hitPoints.map(count => (
+            <ul className={`${props.className} health__list`}>
+                {hitPoints.map(index => (
                     <li
                         className={"health__point"}
-                        key={`healthpoint-${count}`}
+                        key={`healthpoint-${index}`}
                     >
                         <div
                             className={`health__icon health__icon--${
-                                count < this.props.count ? "full" : "empty"
+                                index < count ? "full" : "empty"
                             }`}
                         />
                     </li>
@@ -21,7 +22,8 @@ export class Health extends PureComponent {
             </ul>
         );
     }
-}
+    return null;
+};
 
 Health.propTypes = {};
 
