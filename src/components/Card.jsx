@@ -16,8 +16,8 @@ export const Card = props => {
 
     return (
         <div className={`Card ${__typename}`}>
-            <h3 className="Card__title">{name}</h3>
             <Image className="Card__image" src={image.url} />
+            <h3 className="Card__title">{name}</h3>
             <i className={`Card__type Card__type--${type}`} />
             <p className="Card__description">{description}</p>
             {Object.keys(stats).map(key => (
@@ -36,9 +36,6 @@ Card.defaultProps = {
     type: "None",
     name: "Title missing",
     description: "No description",
-    image: { url: "noimage" },
-    attack: 3,
-    defense: 3,
-    health: 3
+    image: { url: "noimage" }
 };
 export default Card;

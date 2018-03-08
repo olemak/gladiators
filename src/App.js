@@ -16,6 +16,16 @@ const gladiatorQuery = gql`
             health
             defense
         }
+        allItems {
+            name
+            description
+            type
+            image {
+                url
+            }
+            value
+            property
+        }
     }
 `;
 
@@ -28,7 +38,14 @@ export class App extends Component {
                         <Card {...gladiator} key={`gladiator-${i}`} />
                     ))
                 ) : (
-                    <h4>Loading</h4>
+                    <h4>Loading Gladiators</h4>
+                )}
+                {!this.props.data.loading ? (
+                    this.props.data.allItems.map((item, i) => (
+                        <Card {...item} key={`item-${i}`} />
+                    ))
+                ) : (
+                    <h4>Loading Items</h4>
                 )}
             </div>
         );
