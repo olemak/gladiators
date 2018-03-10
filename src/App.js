@@ -34,18 +34,18 @@ export class App extends Component {
         return (
             <div className="Cards">
                 {!this.props.data.loading ? (
-                    this.props.data.allGladiators.map((gladiator, i) => (
-                        <Card {...gladiator} key={`gladiator-${i}`} />
-                    ))
-                ) : (
-                    <h4>Loading Gladiators</h4>
-                )}
-                {!this.props.data.loading ? (
                     this.props.data.allItems.map((item, i) => (
                         <Card {...item} key={`item-${i}`} />
                     ))
                 ) : (
                     <h4>Loading Items</h4>
+                )}
+                {!this.props.data.loading ? (
+                    this.props.data.allGladiators.map((gladiator, i) => (
+                        <Card {...gladiator} key={`gladiator-${i}`} />
+                    ))
+                ) : (
+                    <h4>Loading Gladiators</h4>
                 )}
             </div>
         );

@@ -4,20 +4,18 @@ body {
 }
 
 .Cards {
-    display: grid;
-    grid-template-columns: [left] repeat(6, 1fr) [right];
-    grid-gap: 1em;
-    margin: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    resize: horizontal;
 }
 
 .Card {
-    grid-row-end: span 3;
-
-    display: grid;
+    margin: 0.5em;
     width: 300px;
 
+    display: grid;
     grid-template-columns: [left] repeat(12, 1fr) [right];
-    grid-template-rows: [header] 3em [image-start] 2em [icon-end] 17em [description] 4em [footer] 3em [end];
+    grid-template-rows: [top] 3em [second] 3em [third] 3em [fourth] 13em [description] 4em [footer] 4em [bottom];
 
     border: 1px solid black;
 }
@@ -25,21 +23,32 @@ body {
 .Card__title {
     grid-column-start: 4;
     grid-column-end: right;
-    grid-row-start: header;
-    grid-row-end: image-start;
+    grid-row-start: top;
+    grid-row-end: second;
     margin: 0;
     padding: 0.6em;
     font-size: 1.4em;
 }
+
+.Item .Card__title {
+    grid-row-start: second;
+    grid-row-end: third;
+}
+
 .Card__type {
     grid-column-start: left;
     grid-column-end: 4;
-    grid-row-start: header;
-    grid-row-end: icon-end;
+    grid-row-start: top;
+    grid-row-end: third;
 
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+}
+
+.Item .Card__type {
+    grid-row-start: second;
+    grid-row-end: fourth;
 }
 
 .Card__type--Poison {
@@ -73,12 +82,17 @@ body {
 .Card__image {
     grid-column-start: left;
     grid-column-end: right;
-    grid-row-start: image-start;
+    grid-row-start: second;
     grid-row-end: description;
 
     object-fit: contain;
     width: 100%;
     height: auto;
+}
+
+.Item .Card__image {
+    grid-row-start: third;
+    grid-row-end: span 4;
 }
 
 .Card__description {
@@ -89,6 +103,11 @@ body {
     padding: 0.5em;
     margin: 0;
     line-height: 1.3em;
+}
+
+.Item .Card__description {
+    grid-row-start: footer;
+    grid-row-end: bottom;
 }
 
 .Card__attack,
@@ -140,7 +159,7 @@ body {
 .Card__health {
     grid-column-start: 11;
     grid-column-end: right;
-    grid-row-start: image-start;
+    grid-row-start: second;
     grid-row-end: description;
 
     display: flex;
