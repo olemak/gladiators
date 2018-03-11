@@ -1,0 +1,43 @@
+.Item__property--defense,
+.Item__property--sunder {
+    grid-column-start: left;
+    grid-column-end: 6;
+}
+
+.Item__property--attack,
+.Item__property--break {
+    grid-column-start: 8;
+    grid-column-end: right;
+}
+
+.Item__property {
+    font-size: 3em;
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+}
+
+.Item__property-icon:before {
+    content: "";
+    height: 50px;
+    width: 50px;
+    display: block;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.Item__property-icon--defense:before {
+    background-image: url(../icons/defense.gif);
+}
+
+.Item__property-icon--sunder:before {
+    background-image: url(../icons/sunder.gif);
+}
+
+.Item__property-icon--attack:before {
+    background-image: url(../icons/attack.gif);
+}
+
+.Item__property-icon--break:before {
+    background-image: url(../icons/break.jpg);
+}

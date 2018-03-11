@@ -124,11 +124,11 @@ body {
 
 .Card__attack {
     grid-column-start: left;
-    grid-column-end: 7;
+    grid-column-end: 6;
 }
 
 .Card__defense {
-    grid-column-start: 7;
+    grid-column-start: 8;
     grid-column-end: right;
 }
 
@@ -189,47 +189,4 @@ body {
 }
 .health__icon--empty {
     background-image: url(../icons/heart-empty.gif);
-}
-
-.Card__property--Defense,
-.Card__property--Break {
-    grid-column-start: left;
-    grid-row-start: top;
-}
-
-.Item.Defense .Card__value {
-    grid-column-start: 4;
-}
-
-.Card__value {
-    font-size: 3em;
-}
-
-.Card__property .property__value {
-    display: none;
-}
-
-.Card__property:before {
-    content: "";
-    height: 50px;
-    width: 50px;
-    display: block;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.Card__property--Defense:before {
-    background-image: url(../icons/defense.gif);
-}
-
-.Card__property--Sunder:before {
-    background-image: url(../icons/sunder.gif);
-}
-
-.Card__property--Attack:before {
-    background-image: url(../icons/attack.gif);
-}
-
-.Card__property--Break:before {
-    background-image: url(../icons/break.jpg);
 }

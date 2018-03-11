@@ -1,6 +1,7 @@
 import React from "react";
 import { Health } from "./Health";
 import { Image } from "./Image";
+import { ItemProperty } from "./ItemProperty";
 import "./card.css";
 
 export const Card = props => {
@@ -11,29 +12,16 @@ export const Card = props => {
         type,
         description,
         health,
+        value,
+        property,
         ...stats
     } = props;
 
-    const ItemTypeVariation = () => {
-        if (__typename !== "Item") return "";
-
-        if (stats.value && stats.value > 0) {
-            return ` ${stats.property}`;
-        }
-        switch (stats.property) {
-            case " Defense":
-                return " Sunder";
-            case "Attack":
-                return " Break";
-            case "Health":
-                return " Harm";
-            default:
-                return " Unknown";
-        }
-    };
-
     return (
-        <div className={`Card ${__typename}${ItemTypeVariation()}`}>
+        <div className={`Card ${__typename}`}>
+            {__typename === "Item" ? (
+                <ItemProperty property={property} value={value} />
+            ) : null}
             <Image className="Card__image" src={image.url} />
             <h3 className="Card__title">{name}</h3>
             <i className={`Card__type Card__type--${type}`} />
