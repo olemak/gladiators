@@ -14,14 +14,35 @@ export const Card = props => {
         ...stats
     } = props;
 
+    const ItemTypeVariation = () => {
+        if (__typename !== "Item") return "";
+
+        if (stats.value && stats.value > 0) {
+            return ` ${stats.property}`;
+        }
+        switch (stats.property) {
+            case " Defense":
+                return " Sunder";
+            case "Attack":
+                return " Break";
+            case "Health":
+                return " Harm";
+            default:
+                return " Unknown";
+        }
+    };
+
     return (
-        <div className={`Card ${__typename}`}>
+        <div className={`Card ${__typename}${ItemTypeVariation()}`}>
             <Image className="Card__image" src={image.url} />
             <h3 className="Card__title">{name}</h3>
             <i className={`Card__type Card__type--${type}`} />
             <p className="Card__description">{description}</p>
             {Object.keys(stats).map(key => (
-                <div className={`Card__${key}`} key={key}>
+                <div
+                    className={`Card__${key} Card__${key}--${stats[key]}`}
+                    key={key}
+                >
                     <div className={`${key}__icon`} />
                     <div className={`${key}__value`}>{stats[key]}</div>
                 </div>

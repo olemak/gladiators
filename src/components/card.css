@@ -14,41 +14,42 @@ body {
     width: 300px;
 
     display: grid;
-    grid-template-columns: [left] repeat(12, 1fr) [right];
-    grid-template-rows: [top] 3em [second] 3em [third] 3em [fourth] 13em [description] 4em [footer] 4em [bottom];
+    grid-template-columns: [left] repeat(12, 25px) [right];
+    grid-template-rows: [top] repeat(19, 25px) [bottom];
 
     border: 1px solid black;
 }
 
 .Card__title {
-    grid-column-start: 4;
+    grid-column-start: left;
     grid-column-end: right;
     grid-row-start: top;
-    grid-row-end: second;
+    grid-row-end: 2;
     margin: 0;
     padding: 0.6em;
     font-size: 1.4em;
 }
 
 .Item .Card__title {
-    grid-row-start: second;
-    grid-row-end: third;
+    grid-row-start: 15;
+    grid-row-end: 17;
 }
 
 .Card__type {
-    grid-column-start: left;
-    grid-column-end: 4;
-    grid-row-start: top;
-    grid-row-end: third;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 5;
 
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+    margin: 0.5em 0 0 0.5em;
 }
 
 .Item .Card__type {
-    grid-row-start: second;
-    grid-row-end: fourth;
+    grid-row-start: 3;
+    grid-row-end: 5;
 }
 
 .Card__type--Poison {
@@ -82,54 +83,53 @@ body {
 .Card__image {
     grid-column-start: left;
     grid-column-end: right;
-    grid-row-start: second;
-    grid-row-end: description;
+    grid-row-start: 3;
+    grid-row-end: 15;
 
-    object-fit: contain;
     width: 100%;
     height: auto;
 }
 
 .Item .Card__image {
-    grid-row-start: third;
+    grid-row-start: 3;
     grid-row-end: span 4;
 }
 
 .Card__description {
     grid-column-start: left;
     grid-column-end: right;
-    grid-row-start: description;
-    grid-row-end: footer;
+    grid-row-start: 15;
+    grid-row-end: 17;
     padding: 0.5em;
     margin: 0;
     line-height: 1.3em;
 }
 
 .Item .Card__description {
-    grid-row-start: footer;
+    grid-row-start: 17;
     grid-row-end: bottom;
 }
 
 .Card__attack,
 .Card__defense {
+    grid-row-start: 18;
+    grid-row-end: 20;
+
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-content: center;
+
     line-height: 1;
 }
 
 .Card__attack {
     grid-column-start: left;
     grid-column-end: 7;
-    grid-row-start: footer;
-    grid-row-end: bottom;
 }
 
-.Card__attack,
 .Card__defense {
-    display: flex;
-    justify-content: space-around;
-    align-content: center;
-    padding: 0.6em;
+    grid-column-start: 7;
+    grid-column-end: right;
 }
 
 .attack__icon,
@@ -139,28 +139,25 @@ body {
     height: 3em;
     width: 3em;
 }
+
 .attack__icon {
     background-image: url(../icons/attack.gif);
 }
+
 .defense__icon {
     background-image: url(../icons/defense.gif);
 }
+
 .attack__value,
 .defense__value {
     font-size: 2.8em;
 }
 
-.Card__defense {
-    grid-column-start: 7;
-    grid-column-end: right;
-    grid-row-start: footer;
-    grid-row-end: bottom;
-}
 .Card__health {
     grid-column-start: 11;
     grid-column-end: right;
-    grid-row-start: second;
-    grid-row-end: description;
+    grid-row-start: 4;
+    grid-row-end: 14;
 
     display: flex;
     flex-direction: column;
@@ -192,4 +189,47 @@ body {
 }
 .health__icon--empty {
     background-image: url(../icons/heart-empty.gif);
+}
+
+.Card__property--Defense,
+.Card__property--Break {
+    grid-column-start: left;
+    grid-row-start: top;
+}
+
+.Item.Defense .Card__value {
+    grid-column-start: 4;
+}
+
+.Card__value {
+    font-size: 3em;
+}
+
+.Card__property .property__value {
+    display: none;
+}
+
+.Card__property:before {
+    content: "";
+    height: 50px;
+    width: 50px;
+    display: block;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.Card__property--Defense:before {
+    background-image: url(../icons/defense.gif);
+}
+
+.Card__property--Sunder:before {
+    background-image: url(../icons/sunder.gif);
+}
+
+.Card__property--Attack:before {
+    background-image: url(../icons/attack.gif);
+}
+
+.Card__property--Break:before {
+    background-image: url(../icons/break.jpg);
 }
